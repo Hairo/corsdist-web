@@ -60,3 +60,21 @@ html{
 .card.horizontal{
     margin-bottom: 7px !important;
 }
+
+.page-footer {
+    width: 100%;
+    display: inline-block;
+}
+
+#gp_link {
+    width: 190px;
+}
+
+.row {
+    margin-bottom: 0px;
+}
+
+.white-text, .grey-text {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="https://geographiclib.sourceforge.io/scripts/geographiclib.js"></script>
+    </head>
+    <body>
+        <header>
+        <div id="cheader">
+            <p class="posicion"><b>POSICION:</b></p>
+            <p class="posicion"><b>Lat: </b><span id="lat">Obteniendo posicion...</span></p>
+            <p class="posicion"><b>Lon: </b><span id="lon">Obteniendo posicion...</span></p>
+            <p class="posicion"><b>Prec: </b><span id="accu">-</span>
+        </div>
+        </header>
 
-<script type="text/javascript" src="main.js"></script>
-<script type="text/javascript" src="https://geographiclib.sourceforge.io/scripts/geographiclib.js"></script>
+        <main>
+        <table id="lista">
+        </table>
+        </main>
 
-<div id="cheader">
-    <p class="posicion"><b>POSICION:</b></p>
-    <p class="posicion"><b>Lat: </b><span id="lat">Obteniendo posicion...</span></p>
-    <p class="posicion"><b>Lon: </b><span id="lon">Obteniendo posicion...</span></p>
-    <p class="posicion"><b>Prec: </b><span id="accu">-</span>
-</div>
-
-<table id="lista">
-</table>
-
-</body>
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">CORSDist</h5>
+                <p class="grey-text text-lighten-4">Version web de la aplicacion para android con el mismo nombre.</p>
+                <p class="grey-text text-lighten-4">
+                    <a href="https://play.google.com/store/apps/details?id=com.carela.hairo.corsdist">
+                    <img id="gp_link" src="google-play-badge.png">
+                    </a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            Google Play y el logotipo de Google Play son marcas comerciales de Google LLC.
+            </div>
+          </div>
+        </footer>
+    </body>
 </html>
