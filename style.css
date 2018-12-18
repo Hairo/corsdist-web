@@ -19,7 +19,7 @@ html{
     float: right;
     width: 98%;
     overflow-y: scroll;
-    height:400px;
+    height:150px;
 }
 
 #cheader{
@@ -80,6 +80,7 @@ html{
 }
 
 .page-footer {
+    font-size: 12px;
     background-color: #212121;
 }
 
