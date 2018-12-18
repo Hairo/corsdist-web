@@ -78,3 +78,11 @@ html{
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+.page-footer {
+    background-color: #212121;
+}
+
+.footer-copyright {
+    background-color: #171717 !important;
+}
