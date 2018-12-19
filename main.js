@@ -8,6 +8,12 @@ function fillTable(location) {
             estados = parseStatus(mountpoints, CORS.cors);
         }
 
+        if (!footer) {
+            var foo = document.getElementsByClassName('page-footer');
+            foo[0].style.display = "inline-block";
+            footer = true;
+        }
+
         document.getElementById("lat").innerHTML = loc.coords.latitude;
         document.getElementById("lon").innerHTML = loc.coords.longitude;
         document.getElementById("accu").innerHTML = `${loc.coords.accuracy.toFixed(3)}m`;
@@ -200,6 +206,7 @@ fetch('cors.json').then(resp => resp.text()).then(data => {
     CORS = JSON.parse(data);
 })
 
+var footer;
 var mountpoints;
 var estados;
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
