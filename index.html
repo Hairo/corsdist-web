@@ -7,20 +7,46 @@
         <link rel="stylesheet" href="style.css">
         <script type="text/javascript" src="main.js"></script>
         <script type="text/javascript" src="https://geographiclib.sourceforge.io/scripts/geographiclib.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </head>
     <body>
         <header>
-        <div id="cheader">
-            <p class="posicion"><b>POSICION:</b></p>
-            <p class="posicion"><b>Lat: </b><span id="lat">Obteniendo posicion...</span></p>
-            <p class="posicion"><b>Lon: </b><span id="lon">Obteniendo posicion...</span></p>
-            <p class="posicion"><b>Prec: </b><span id="accu">-</span>
+        <div id="mheader">
+            <div id="cheader">
+                <p class="posicion"><b>POSICION:</b></p>
+                <p class="posicion"><b>Lat: </b><span id="lat">Obteniendo posicion...</span></p>
+                <p class="posicion"><b>Lon: </b><span id="lon">Obteniendo posicion...</span></p>
+                <p class="posicion"><b>Prec: </b><span id="accu">-</span>
+            </div>
+            <div id="bheader">
+                 <p class="btn_posicion" id="ub_btn" onclick="actvPosicion()"><a class="btn">usar ubicacion</a></p>
+                 <p class="btn_posicion"><a class="btn modal-trigger" href="#modal1">editar</a></p>
+            </div>
         </div>
         </header>
 
         <main>
         <table id="lista">
         </table>
+
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Editar posición</h4>
+            <p>Introduzca posición en grados decimales:</p>
+            <div class="input-field col s6">
+                <input placeholder="19.0000000" id="lat_inp" type="text" pattern="-?\d{1,3}\.\d+" class="validate">
+                <label for="first_name">Latitud</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="-70.0000000" id="lon_inp" type="text" pattern="-?\d{1,3}\.\d+" class="validate">
+                <label for="first_name">Longitud</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a class="modal-close btn-flat">Cancelar</a>
+            <a class="modal-close btn-flat" onclick="onDialogClose()">Aceptar</a>
+          </div>
+        </div>
         </main>
 
         <footer class="page-footer">
@@ -32,7 +58,7 @@
                 <p class="grey-text text-lighten-4">Puedes contribuir con codigo en <a href="https://github.com/Hairo/corsdist-web">el repositorio.</a></p>
                 <p class="grey-text text-lighten-4">
                     <a href="https://play.google.com/store/apps/details?id=com.carela.hairo.corsdist">
-                    <img id="gp_link" src="google-play-badge.png">
+                    <img id="gp_link" src="img/google-play-badge.png">
                     </a>
                 </p>
               </div>

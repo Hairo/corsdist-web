@@ -22,12 +22,32 @@ html{
     height:150px;
 }
 
-#cheader{
+#mheader{
     width: 100%;
     position: fixed;
-    background:#FFFFFF;
+    float: left;
+    background: #FFFFFF;
     top: 0px;
     z-index: 10;
+}
+
+#cheader{
+    width: 50%;
+    float: left;
+}
+
+#bheader{
+    width: 50%;
+    float: right;
+    text-align: right;
+}
+
+.btn_posicion {
+    margin-right: 4px;
+}
+
+#ub_btn {
+    visibility: hidden;
 }
 
 .posicion {

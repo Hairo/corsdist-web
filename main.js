@@ -16,7 +16,7 @@ function fillTable(location) {
 
         document.getElementById("lat").innerHTML = loc.coords.latitude;
         document.getElementById("lon").innerHTML = loc.coords.longitude;
-        document.getElementById("accu").innerHTML = `${loc.coords.accuracy.toFixed(3)}m`;
+        document.getElementById("accu").innerHTML = (loc.coords.accuracy) ? `${loc.coords.accuracy.toFixed(3)}m` : " - ";
 
         c_obj = [];
         for (var i = 0; i < CORS.cors.length; i++) {
@@ -186,19 +186,43 @@ function parseStatus(response, clist) {
     return res;
 }
 
+function onDialogClose() {
+    var lat = parseFloat(document.getElementById("lat_inp").value);
+    var lon = parseFloat(document.getElementById("lon_inp").value);
+
+    if (lat && lon) {
+        navigator.geolocation.clearWatch(id);
+        var moc_loc = {coords: {latitude: lat, longitude: lon}};
+
+        fillTable(moc_loc);
+        document.getElementById("ub_btn").style.visibility = "visible";
+    }
+}
+
+function actvPosicion() {
+    id = navigator.geolocation.watchPosition(fillTable, error, pos_options);
+    var loc_b = document.getElementById("ub_btn");
+
+    if (loc_b) {
+        loc_b.style.visibility = "hidden";
+        document.getElementById("lat").innerHTML = "Obteniendo posicion...";
+        document.getElementById("lon").innerHTML = "Obteniendo posicion...";
+    }
+}
+
 function error(err) {
   console.warn('ERROR(' + err.code + '): ' + err.message);
 }
 
-options = {
+pos_options = {
   enableHighAccuracy: true,
   timeout: Infinity,
   maximumAge: 8000
 };
 
 var id;
-window.onload = () => { id = navigator.geolocation.watchPosition(fillTable, error, options); }
-window.onfocus = () => { id = navigator.geolocation.watchPosition(fillTable, error, options); }
+window.onload = () => { id = navigator.geolocation.watchPosition(fillTable, error, pos_options); }
+window.onfocus = () => { id = navigator.geolocation.watchPosition(fillTable, error, pos_options); }
 window.onblur = () => { navigator.geolocation.clearWatch(id); }
 
 var CORS;
@@ -215,3 +239,8 @@ fetch(proxyurl + url)
 .then(response => response.text())
 .then(contents => mountpoints = contents)
 .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, null);
+});
