@@ -166,7 +166,7 @@ function parseStatus(response, clist) {
         for (var j = 0; j < lineas.length; j++) {
             var spl = lineas[j].split(';');
             if (spl[0] == "STR") {
-                if (spl[1] == clist[i].codigo) {
+                if (spl[1].includes(clist[i].codigo)) {
                     estado = 1;
                     modo = spl[6];
                     break;
