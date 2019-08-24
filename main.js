@@ -99,8 +99,8 @@ function fillTable(location) {
             t1 = c_obj[i].tie1;
             t2 = c_obj[i].tie2;
 
-            t1_el.innerHTML = `Tiempo(L1): ${pad(parseInt(t1/60), 2)}:${pad(parseInt(t1%60), 2)}`;
-            t2_el.innerHTML = `Tiempo(L1/L2): ${pad(parseInt(t2/60), 2)}:${pad(parseInt(t2%60), 2)}`;
+            t1_el.innerHTML = `Tiempo(L1): ${pad(parseInt(t1/60), 2)}h ${pad(parseInt(t1%60), 2)}m`;
+            t2_el.innerHTML = `Tiempo(L1/L2): ${pad(parseInt(t2/60), 2)}h ${pad(parseInt(t2%60), 2)}m`;
 
             p1.appendChild(cod_el);
             p1.appendChild(lug_el);
