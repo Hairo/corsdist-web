@@ -233,8 +233,8 @@ fetch('cors.json').then(resp => resp.text()).then(data => {
 var footer;
 var mountpoints;
 var estados;
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const url = "http://redfc.ddns.net:2103/";
+const proxyurl = "https://cors.bridged.cc/";
+const url = "<http://redfc.ddns.net:2103/>";
 fetch(proxyurl + url)
 .then(response => response.text())
 .then(contents => mountpoints = contents)
