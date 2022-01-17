@@ -233,8 +233,8 @@ fetch('cors.json').then(resp => resp.text()).then(data => {
 var footer;
 var mountpoints;
 var estados;
-const proxyurl = "http://www.whateverorigin.org/get?url=";
-const url = "http://redfc.ddns.net:2103/";
+const proxyurl = "https://api.allorigins.win/raw?url=";
+const url = encodeURIComponent("http://redfc.ddns.net:2103/");
 fetch(proxyurl + url)
 .then(response => response.text())
 .then(contents => mountpoints = contents)
