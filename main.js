@@ -234,7 +234,7 @@ var footer;
 var mountpoints;
 var estados;
 const proxyurl = "https://api.allorigins.win/raw?url=";
-const url = encodeURIComponent("http://redfc.ddns.net:2103/");
+const url = encodeURIComponent("http://152.167.4.87:2103/");
 fetch(proxyurl + url)
 .then(response => response.text())
 .then(contents => mountpoints = contents)
