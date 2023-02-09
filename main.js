@@ -158,7 +158,7 @@ function parseStatus(response, clist) {
     var el = document.createElement('html');
     el.innerHTML = response;
 
-    var lineas = el.querySelectorAll('pre')[0].firstChild.data.split('\n');
+    var lineas = el.querySelectorAll('pre')[0].firstChild.data.split("\\r\\n");
 
     for (var i = 0; i < clist.length; i++) {
         var estado;
