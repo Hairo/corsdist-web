@@ -233,7 +233,7 @@ fetch('cors.json').then(resp => resp.text()).then(data => {
 var footer;
 var mountpoints;
 var estados;
-const proxyurl = "https://api.allorigins.win/raw?url=";
+const proxyurl = "https://api.allorigins.win/get?url=";
 const url = encodeURIComponent("http://152.167.4.87:2103/");
 fetch(proxyurl + url)
 .then(response => response.text())
