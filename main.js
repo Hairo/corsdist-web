@@ -24,10 +24,10 @@ function fillTable(location) {
             var cdist = (dist % 1 > 0) ? (dist-dist%1)+1 : dist;
             var t1 = ((cdist*3)+30);
             var t2 = ((cdist*2)+20);
-            var edata = getJObjByCode(CORS.cors[i].codigo, estados);
+            var edata = getJObjByCode(CORS.cors[i].nombre, estados);
 
             c_obj.push({
-                cod : CORS.cors[i].codigo,
+                cod : CORS.cors[i].nombre,
                 lug : CORS.cors[i].lugar,
                 dist : dist,
                 prov : CORS.cors[i].proveedor,
@@ -129,11 +129,11 @@ function fillTable(location) {
     }
 }
 
-function getJObjByCode(code, jarray) {
+function getJObjByCode(nombre, jarray) {
     var resObj;
 
     for (var i = 0; i < jarray.length; i++) {
-        if (code == jarray[i].codigo) {
+        if (nombre == jarray[i].nombre) {
             resObj = jarray[i];
         }
     }
@@ -166,7 +166,7 @@ function parseStatus(response, clist) {
         for (var j = 0; j < lineas.length; j++) {
             var spl = lineas[j].split(';');
             if (spl[0] == "STR") {
-                if (spl[1].includes(clist[i].codigo)) {
+                if (spl[1].includes(clist[i].nombre)) {
                     estado = 1;
                     modo = spl[6];
                     break;
@@ -177,7 +177,7 @@ function parseStatus(response, clist) {
             }
         }
         res.push({
-            codigo : clist[i].codigo,
+            nombre : clist[i].nombre,
             est : estado,
             mod : modo
         });
