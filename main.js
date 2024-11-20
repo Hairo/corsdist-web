@@ -161,21 +161,16 @@ function parseStatus(response, clist) {
     var lineas = el.querySelectorAll('pre')[0].firstChild.data.split("\\r\\n");
 
     for (var i = 0; i < clist.length; i++) {
-        var estado;
-        var modo;
-        for (var j = 0; j < lineas.length; j++) {
-            var spl = lineas[j].split(';');
-            if (spl[0] == "STR") {
-                if (spl[1].includes(clist[i].nombre)) {
-                    estado = 1;
-                    modo = spl[6];
-                    break;
-                } else {
-                    estado = 0;
-                    modo = " - ";
-                }
-            }
+        var estado = 0;
+        var modo = " - ";
+        
+        const result = isOnline(lineas, clist[i])
+        
+        if (result != null) {
+            estado = 1;
+            modo = result;
         }
+
         res.push({
             nombre : clist[i].nombre,
             est : estado,
@@ -184,6 +179,24 @@ function parseStatus(response, clist) {
     }
 
     return res;
+}
+
+function isOnline(lineas, cors) {
+    const todos = cors.aliases.concat([cors.nombre]);
+    
+    for (var i = 0; i < lineas.length; i++) {
+        const spl = lineas[i].split(';');
+        if (spl[0] == "STR") {
+            if (todos.includes(spl[1]) || spl[1].includes(cors.nombre)) {
+                if (spl[4].includes("(")) {
+                    return spl[6];
+                }
+            }
+        }
+    }
+    
+    
+    return null;
 }
 
 function onDialogClose() {
@@ -243,4 +256,7 @@ fetch(proxyurl + url)
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems, null);
+    
+    document.getElementById("lat_inp").value = "19.0";
+    document.getElementById("lon_inp").value = "-70.0";
 });
