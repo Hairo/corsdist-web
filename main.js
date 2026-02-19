@@ -157,13 +157,14 @@ function parseStatus(response, clist) {
     var res = [];
     var el = document.createElement('html');
 
-    // Only works with whateverorigin.org
-    // allorigins.win uses raw response
+    // allorigins.win
+    // el.innerHTML = response;
+    // var lineas = el.querySelectorAll('pre')[0].firstChild.data.split("\\r\\n");
+    
+    // whateverorigin.org
     var jresp = JSON.parse(response).contents
     el.innerHTML = jresp;
-    console.log(jresp);
-
-    var lineas = el.querySelectorAll('pre')[0].firstChild.data.split("\\r\\n");
+    var lineas = el.querySelectorAll('pre')[0].firstChild.data.split("\n");
 
     for (var i = 0; i < clist.length; i++) {
         var estado = 0;
