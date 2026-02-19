@@ -156,8 +156,11 @@ function calcDist(lat1, lon1, lat2, lon2) {
 function parseStatus(response, clist) {
     var res = [];
     var el = document.createElement('html');
-    el.innerHTML = response;
-    console.log(response);
+
+    // Only works with whateverorigin.org
+    // allorigins.win uses raw response
+    var jresp = JSON.parse(response).contents
+    el.innerHTML = jresp;
 
     var lineas = el.querySelectorAll('pre')[0].firstChild.data.split("\\r\\n");
 
