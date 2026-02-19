@@ -161,6 +161,7 @@ function parseStatus(response, clist) {
     // allorigins.win uses raw response
     var jresp = JSON.parse(response).contents
     el.innerHTML = jresp;
+    console.log(jresp);
 
     var lineas = el.querySelectorAll('pre')[0].firstChild.data.split("\\r\\n");
 
