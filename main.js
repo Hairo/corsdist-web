@@ -158,13 +158,13 @@ function parseStatus(response, clist) {
     var el = document.createElement('html');
 
     // allorigins.win
-    // el.innerHTML = response;
-    // var lineas = el.querySelectorAll('pre')[0].firstChild.data.split("\\r\\n");
+    el.innerHTML = response;
+    var lineas = el.querySelectorAll('pre')[0].firstChild.data.split("\\r\\n");
     
     // whateverorigin.org
-    var jresp = JSON.parse(response).contents
-    el.innerHTML = jresp;
-    var lineas = el.querySelectorAll('pre')[0].firstChild.data.split("\n");
+    // var jresp = JSON.parse(response).contents
+    // el.innerHTML = jresp;
+    // var lineas = el.querySelectorAll('pre')[0].firstChild.data.split("\n");
 
     for (var i = 0; i < clist.length; i++) {
         var estado = 0;
@@ -252,7 +252,7 @@ fetch('cors.json').then(resp => resp.text()).then(data => {
 var footer;
 var mountpoints;
 var estados;
-const proxyurl = "https://whateverorigin.org/get?url=";
+const proxyurl = "https://api.allorigins.win/get?url=";
 const url = encodeURIComponent("http://190.166.228.161:2103/");
 fetch(proxyurl + url)
 .then(response => response.text())
